@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--STEP1-->
+    <h3>STEP1</h3>
+    <input type="button" id="b1" value="追加ボタン" onclick="insert_1()">
+    <input type="button" id="b2" value="消去ボタン" onclick="delete_1()"><br>
+    <ul id="step_1"></ul>
+
+    <!--[STEP2]-->
+    <h3>STEP2</h3>
+    <input type="text" id="message_1">
+    <input type="button" value="追加ボタン" onclick="insert_2()">
+    <input type="button" value="消去ボタン" onclick="delete_2()">
+    <ul id="step_2"></ul>
+
+    <!--[STEP3]-->
+    <h3>STEP3</h3>
+    <input type="text" id="message_2">
+    <input type="button" value="追加ボタン" onclick="insert_3()">
+    <input type="text" id="message_3">
+    <input type="button" value="消去ボタン" onclick="delete_3()">
+    <ul id="step_3"></ul>
+
+    <script>
+    //----------------------------[STEP1]---------------------//
+    function insert_1(){//追加
+        var id = document.getElementById("step_1");
+        var child = document.createElement('li');//タグを作成する
+       child.textContent = "test";//追加先を決める
+       id.appendChild(child);//実行
+    }
+
+    function delete_1(){//削除
+        var id = document.getElementById("step_1");
+        var children = id.children;
+        id.removeChild(children.item(0));
+    }
+   //-----------------------[STEP2]--------------------------//
+   function insert_2(){//追加
+      var textbox = document.getElementById("message_1");//テキストの値取得
+      var li = document.getElementById("step_2");//liタグ値取得
+      var inputValue = textbox.value;//文字変換
+      var child = document.createElement('li');//タグを作成する
+    //   console.log(inputValue);
+      child.textContent = inputValue;
+      li.appendChild(child);//実行
+    }
+
+    function delete_2(){//消去
+        var id = document.getElementById("step_2");
+        var children = id.children;
+        id.removeChild(children.item(0));
+    }
+
+//-----------------------[STEP3]--------------------------//
+function insert_3(){//追加
+      var textbox = document.getElementById("message_2");//テキストの値取得
+      var li = document.getElementById("step_3");//liタグ値取得
+      var inputValue = textbox.value;//文字変換
+      var child = document.createElement('li');//タグを作成する
+    //   console.log(inputValue);
+      child.textContent = inputValue;
+      li.appendChild(child);//実行
+    }
+
+    function delete_3(){//消去
+      var textbox = document.getElementById("message_3");//テキストの値を取得
+      var textbox = textbox.value;//文字変換
+      var soej = textbox - 1;//入力された数-1
+      
+      var list = document.getElementById("step_3");//ulのid取得
+      var children = list.children[soej];//指定した子要素を取得
+      list.removeChild(children);
+}
+</script>
+</body>
+</html>
